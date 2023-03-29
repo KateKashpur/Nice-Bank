@@ -1,7 +1,7 @@
 import React from "react";
-
+import col from './Profile.module.css';
 const Profile = () => {
-    return   <div className="content">
+    return   <div className={col.content}>
     <div>
       <img src="https://th.bing.com/th/id/OIP.timIjBFdAVRmBHxvXndHpQHaFj?w=235&h=180&c=7&r=0&o=5&pid=1.7" />
     </div>
@@ -10,8 +10,8 @@ const Profile = () => {
       my posts
       <div>New posts</div>
     </div>
-    <div>
-      <div>post1</div>
+    <div className={col.posts}>
+      <div className={col.item}>post1</div>
       <div>post2</div>
     </div>
   </div>

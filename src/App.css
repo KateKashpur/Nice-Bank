@@ -11,21 +11,6 @@ grid-template-areas:
 
 }
 
-.header {
-grid-area: h;
-background-color: rgb(80, 22, 187);
-}
 
-.header img {
-    width: 60px;
-   
-}
 
-.nav {
-grid-area: n;
-background-color: rgb(44, 205, 249);
-}
-.content {
-grid-area: c;
-background-color: darkcyan;
-}
+
