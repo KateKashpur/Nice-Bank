@@ -12,12 +12,12 @@ const MyPosts = () => {
       </div>
       <div className={col.posts}>
 
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+     
+      <Post message='Hi, how are you?'
+      like="15"/>
+      <Post message="I'ts my first post"
+      like="20"/>
+   
       </div>
     </div>
   );
