@@ -1,28 +1,22 @@
 import React from "react";
 import col from './Navbar.module.css';
 
-//let c1 = "item";
-//let c2 = "active";
-// "item active"
-//let classes = c1 + " " c2 ;
-//let classesNew = `${col.item} ${col.active}`;
- 
 const Navbar = () => {
   return   <nav className={col.nav}>
   <div className={col.item}>
-    <a>Profile</a>
+    <a href="/profile">Profile</a>
   </div>
   <div className={`${col.item} ${col.active}`}>
-    <a>Message</a>
+    <a href="/dialogs">Message</a>
   </div>
   <div className={col.item}>
-    <a>News</a>
+    <a href="/news">News</a>
   </div>
   <div className={col.item}>
-    <a>Musik</a>
+    <a href="/music">Music</a>
   </div>
   <div className={col.item}>
-    <a>Settings</a>
+    <a href="/settings">Settings</a>
   </div>
 </nav>
 }
