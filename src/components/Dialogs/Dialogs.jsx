@@ -3,7 +3,7 @@ import col from "./Dialogs.module.css";
 import { NavLink } from "react-router-dom";
 
 const DialogItem = (props) => {
-  let path = "dialogs/" + props.id;
+  let path = "/dialogs/" + props.id;
   return (
     <div className={col.active}>
       <NavLink to={path}>{props.name}</NavLink>
@@ -12,10 +12,8 @@ const DialogItem = (props) => {
 };
 
 const Message = (props) => {
-    return (
-        <div className={col.message}>{props.message}</div>
-    )
-}
+  return <div className={col.message}>{props.message}</div>;
+};
 
 const Dialogs = (props) => {
   return (
@@ -30,10 +28,10 @@ const Dialogs = (props) => {
         <DialogItem name="Ruslan" id="7" />
       </div>
       <div className={col.messages}>
-       <Message message="Hi! ^_^" />
-       <Message message="YO" />
-       <Message message="YO" />
-       <Message message="YO" />
+        <Message message="Hi! ^_^" />
+        <Message message="YO" />
+        <Message message="YO" />
+        <Message message="YO" />
       </div>
     </div>
   );
