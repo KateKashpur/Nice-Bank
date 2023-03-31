@@ -11,6 +11,12 @@ const DialogItem = (props) => {
   );
 };
 
+const Message = (props) => {
+    return (
+        <div className={col.message}>{props.message}</div>
+    )
+}
+
 const Dialogs = (props) => {
   return (
     <div className={col.dialogs}>
@@ -24,9 +30,10 @@ const Dialogs = (props) => {
         <DialogItem name="Ruslan" id="7" />
       </div>
       <div className={col.messages}>
-        <div className={col.message}>Hi! ^_^</div>
-        <div className={col.message}>How are you?</div>
-        <div className={col.message}>That nice!</div>
+       <Message message="Hi! ^_^" />
+       <Message message="YO" />
+       <Message message="YO" />
+       <Message message="YO" />
       </div>
     </div>
   );
