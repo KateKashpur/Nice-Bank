@@ -6,16 +6,12 @@ grid-template-columns: 2fr 10fr;
 .dialogsItems {
 padding: 10px;
 }
-.active {
-    color: rgb(199, 36, 36);
-  }
 
-.dialog {
-
+.dialogsItems .active {
+    color: brown;
 }
+
+
 .message {
 padding: 10px;
-}
-.message {
-
 }
