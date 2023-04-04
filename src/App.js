@@ -24,7 +24,7 @@ const App = (props) => {
             />
             <Route
               exact
-              path="/dialogs/"
+              path="/dialogs/*"
               element={
                 <Dialogs dialogs={props.dialogs} messages={props.messages} />
               }
