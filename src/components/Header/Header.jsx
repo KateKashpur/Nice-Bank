@@ -1,7 +1,7 @@
 import React from "react";
 import col from "./Header.module.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={col.header}>
       <img src="Logo.png" alt="logo" width={10}/>
