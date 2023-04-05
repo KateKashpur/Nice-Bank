@@ -19,7 +19,7 @@ let state = {
     ],
 
     dialogs: [
-      { id: 1, name: "Nikitosik",  img: <img src="https://th.bing.com/th/id/R.86a2056fc602703342b1ec619c9d752b?rik=YKzVjRQH9xgPIw&pid=ImgRaw&r=0" alt="foto"/> },
+      { id: 1, name: "Nikitosik" },
       { id: 2, name: "Dimon" },
       { id: 3, name: "Ira" },
       { id: 4, name: "Sergey" },
@@ -30,7 +30,7 @@ let state = {
   },
   sideBar: {
     friends: [
-      { id: 1, name: "Nikitosik", },
+      { id: 1, name: "Nikitosik" },
       { id: 2, name: "Dimon" },
       { id: 3, name: "Ira" },
       { id: 4, name: "Sergey" },
