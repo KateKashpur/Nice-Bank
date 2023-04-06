@@ -10,7 +10,6 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
 
-
 const App = (props) => {
   return (
     <div className="app-wrapper">
@@ -22,7 +21,10 @@ const App = (props) => {
             exact
             path="/profile"
             element={
-              <Profile state={props.state.profilePage} addPost={props.addPost} />
+              <Profile
+                state={props.state.profilePage}
+                addPost={props.addPost}
+              />
             }
           />
           <Route
