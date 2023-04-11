@@ -3,24 +3,27 @@ import col from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import Friends from "../Friends/Friends";
+import {addMessageActionCreator, updateNewMessageActionCreator} from "../../redux/State"
+
 
 const Dialogs = (props) => {
   let dialogsElements = props.state.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} img={d.img} />
   ));
-
+  
   let messagesElements = props.state.messages.map((m) => (
     <Message message={m.message} />
   ));
 
   let newMessageElement = React.createRef();
+
   let addMessage = () => {
-    props.dispatch({type: 'ADD-MESSAGE'});
-  };
+    props.dispatch(addMessageActionCreator())
+  }
 
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    let action= {type: 'UPDATE-NEW-MESSAGE-TEXT', newTextMess: text }
+    let action= updateNewMessageActionCreator(text)
     props.dispatch(action)
   };
 
@@ -44,4 +47,5 @@ const Dialogs = (props) => {
     </div>
   );
 };
+
 export default Dialogs;

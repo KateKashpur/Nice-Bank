@@ -1,6 +1,9 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+
 let store = {
   _state: {
     profilePage: {
@@ -73,7 +76,7 @@ let store = {
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText;
       this._callSubsciber(this._state);
-    } else if (action.type === "ADD-MESSAGE") {
+    } else if (action.type === ADD_MESSAGE) {
       let newMessage = {
         id: 7,
         message: this._state.dialogsPage.newMessageText,
@@ -81,7 +84,7 @@ let store = {
       this._state.dialogsPage.messages.unshift(newMessage);
       this._state.dialogsPage.newMessageText = "";
       this._callSubsciber(this._state);
-    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
       this._state.dialogsPage.newMessageText = action.newTextMess;
       this._callSubsciber(this._state);
     }
@@ -96,6 +99,17 @@ export const updateNewPostActionCreator = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text,
 });
+
+
+export const addMessageActionCreator = () => ({
+  type: ADD_MESSAGE,
+});
+
+export const updateNewMessageActionCreator = (text) => ({
+  type: UPDATE_NEW_MESSAGE_TEXT,
+  newTextMess: text,
+});
+
 
 export default store;
 
