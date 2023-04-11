@@ -32,7 +32,7 @@ const App = (props) => {
             path="/dialogs/"
             element={
               <Dialogs
-                state={props.state.dialogsPage}
+              store={props.store}
                 dispatch={props.dispatch}
                
               />

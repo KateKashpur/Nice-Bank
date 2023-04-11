@@ -1,8 +1,8 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
+const SEND_MESSAGE = "SEND-MESSAGE";
 
 let store = {
   _state: {
@@ -36,7 +36,7 @@ let store = {
         { id: 7, name: "Ruslan" },
       ],
 
-      newMessageText: "Hi sunshine!",
+      newMessageBody: ""
     },
     sideBar: {
       friends: [
@@ -76,18 +76,18 @@ let store = {
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText;
       this._callSubsciber(this._state);
-    } else if (action.type === ADD_MESSAGE) {
-      let newMessage = {
-        id: 7,
-        message: this._state.dialogsPage.newMessageText,
-      };
-      this._state.dialogsPage.messages.unshift(newMessage);
-      this._state.dialogsPage.newMessageText = "";
-      this._callSubsciber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._state.dialogsPage.newMessageText = action.newTextMess;
+    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+      this._state.dialogsPage.newMessageBody = action.body;
       this._callSubsciber(this._state);
     }
+
+    else if (action.type === SEND_MESSAGE) {
+      let body =  this._state.dialogsPage.newMessageBody;
+      this._state.dialogsPage.newMessageBody = '';
+      this._state.dialogsPage.messages.unshift({ id: 7, message: body});
+      this._callSubsciber(this._state);}
+
+
   },
 };
 
@@ -101,13 +101,11 @@ export const updateNewPostActionCreator = (text) => ({
 });
 
 
-export const addMessageActionCreator = () => ({
-  type: ADD_MESSAGE,
-});
+export const sandMessageCreator = () => ({ type: SEND_MESSAGE,});
 
-export const updateNewMessageActionCreator = (text) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
-  newTextMess: text,
+export const updateNewMessageBodyCreator = (body) => ({
+  type: UPDATE_NEW_MESSAGE_BODY,
+  body: body
 });
 
 
