@@ -3,13 +3,10 @@ import col from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import Friends from "../Friends/Friends";
-import {
-  updateNewMessageBodyCreator,
-  sandMessageCreator,
-} from "../../redux/dialogs-reducer";
+
 
 const Dialogs = (props) => {
-  let state = props.store.getState().dialogsPage;
+  let state = props.dialogsPage;
 
   let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} img={d.img} />
@@ -22,12 +19,12 @@ const Dialogs = (props) => {
   let newMessageBody = state.newMessageBody;
 
   let onSendMessageClick = () => {
-    props.store.dispatch(sandMessageCreator());
+    props.sandMessage();
   };
 
   let onNewMessageChange = (e) => {
     let body = e.target.value;
-    props.store.dispatch(updateNewMessageBodyCreator(body));
+    props.updateNewMessageBody(body)
   };
 
   return (

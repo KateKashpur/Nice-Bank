@@ -9,8 +9,9 @@ import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-const App = (props) => { 
+const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
@@ -20,17 +21,12 @@ const App = (props) => {
           <Route
             exact
             path="/profile"
-            element={
-              <Profile
-                profilePage={props.state.profilePage}
-                dispatch={props.dispatch}
-              />
-            }
+            element={<Profile store={props.store} />}
           />
           <Route
             exact
             path="/dialogs/"
-            element={<Dialogs store={props.store} dispatch={props.dispatch} />}
+            element={<DialogsContainer store={props.store} />}
           />
           <Route exact path="/news" element={<News />} />
           <Route exact path="/music" element={<Music />} />
