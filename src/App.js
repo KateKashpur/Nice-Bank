@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Dialogs from "./components/Dialogs/Dialogs";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
@@ -21,12 +20,12 @@ const App = (props) => {
           <Route
             exact
             path="/profile"
-            element={<Profile store={props.store} />}
+            element={<Profile />}
           />
           <Route
             exact
             path="/dialogs/"
-            element={<DialogsContainer store={props.store} />}
+            element={<DialogsContainer />}
           />
           <Route exact path="/news" element={<News />} />
           <Route exact path="/music" element={<Music />} />
