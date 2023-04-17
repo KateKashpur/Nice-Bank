@@ -9,6 +9,7 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import Users from "./components/Users/Users";
 
 const App = (props) => {
   return (
@@ -26,6 +27,11 @@ const App = (props) => {
             exact
             path="/dialogs/"
             element={<DialogsContainer />}
+          />
+             <Route
+            exact
+            path="/users"
+            element={<Users />}
           />
           <Route exact path="/news" element={<News />} />
           <Route exact path="/music" element={<Music />} />
