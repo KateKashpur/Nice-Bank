@@ -36,7 +36,7 @@ let Users = (props) => {
         photoUrl:
           "https://th.bing.com/th/id/R.df5cb8411d09b3e4f3e0db213bf3bdd2?rik=%2f4MCDC%2fSVYKvWw&pid=ImgRaw&r=0",
         followed: true,
-        fullname: "Sergey",
+        fullName: "Sergey",
         status: "taddy",
         location: { city: "Kiev", country: "Ukrein" },
       },
@@ -82,30 +82,30 @@ let Users = (props) => {
               {u.followed ? (
                 <button
                   onClick={() => {
-                    props.follow(u.id);
-                  }}
-                >
-                  Follow
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
                     props.unfollow(u.id);
                   }}
                 >
                   Unfollow
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    props.follow(u.id);
+                  }}
+                >
+                  Follow
                 </button>
               )}
             </div>
           </span>
           <span>
             <span>
-              <div>{u.fullName}</div>
-              <div>{u.status}</div>
+              <div className={styles.userFullname}>{u.fullName}</div>
+              <div className={styles.userStatus}>{u.status}</div>
             </span>
             <span>
-              <div>{u.location.country}</div>
-              <div>{u.location.city}</div>
+              <div className={styles.userLocation}>{u.location.country}</div>
+              <div className={styles.userLocation}>{u.location.city}</div>
             </span>
           </span>
         </div>

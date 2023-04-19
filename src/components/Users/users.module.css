@@ -1,4 +1,14 @@
 .userPhoto {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
+}
+.userFullname {
+  color: rgb(229, 216, 242);
+}
+.userStatus {
+  color: rgb(77, 255, 0);
+}
+
+.userLocation {
+  color: black;
 }
