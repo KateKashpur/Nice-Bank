@@ -1,30 +1,28 @@
 import React from "react";
 import styles from "./users.module.css";
 import axios, * as others from "axios";
-import userPhoto from '../../assets/images/User.png'
+import userPhoto from "../../assets/images/User.png";
 
 class Users extends React.Component {
-  constructor(props){
-    super(props)
-      axios
-        .get("https://social-network.samuraijs.com/api/1.0/users")
-        .then(response => {
-          this.props.setUsers(response.data.items );
-        });
-    
-
-
+  componentDidMount() {
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        this.props.setUsers(response.data.items);
+      });
   }
 
-
-  render () {
+  render() {
     return (
       <div>
         {this.props.users.map((u) => (
           <div key={u.id}>
             <span>
               <div>
-                <img src={ u.photos.small != null ? u.photos.small : userPhoto } className={styles.userPhoto} />
+                <img
+                  src={u.photos.small != null ? u.photos.small : userPhoto}
+                  className={styles.userPhoto}
+                />
               </div>
               <div>
                 {u.followed ? (
@@ -52,17 +50,17 @@ class Users extends React.Component {
                 <div className={styles.userStatus}>{u.status}</div>
               </span>
               <span>
-                <div className={styles.userLocation}>{'u.location.country'}</div>
-                <div className={styles.userLocation}>{'u.location.city'}</div>
+                <div className={styles.userLocation}>
+                  {"u.location.country"}
+                </div>
+                <div className={styles.userLocation}>{"u.location.city"}</div>
               </span>
             </span>
           </div>
         ))}
       </div>
-    )
+    );
   }
 }
 
 export default Users;
-
-
