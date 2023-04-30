@@ -3,8 +3,8 @@ import col from './Music.module.css'
 
 const Music = (props) => {
  return (
-    <div>
-        Music
+    <div className={col.music}>
+        <a href="https://mp3ukr.com/ua/">MUSIC</a>
     </div>
  )
 }

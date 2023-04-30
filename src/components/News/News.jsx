@@ -4,7 +4,7 @@ import col from './News.module.css'
 const News = (props) => {
  return (
     <div>
-        News
+         <a href="https://www.bbc.com/news/world-60525350">NEWS</a>
     </div>
  )
 }
