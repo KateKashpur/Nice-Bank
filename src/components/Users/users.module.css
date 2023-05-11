@@ -12,3 +12,7 @@
 .userLocation {
   color: black;
 }
+
+.selectedPage {
+  font-weight: bold;
+}
