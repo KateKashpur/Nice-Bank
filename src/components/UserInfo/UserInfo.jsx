@@ -4,7 +4,7 @@ const UserInfo = (props) => {
   return (
     <div>
       <h2>
-        {props.userName} {props.age}
+        {props.userName} {props.img}
       </h2>
     </div>
   );
