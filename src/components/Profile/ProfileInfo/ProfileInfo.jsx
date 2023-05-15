@@ -1,19 +1,43 @@
 import React from "react";
 import col from "./ProfileInfo.module.css";
-import UserInfo from "../../UserInfo/UserInfo"
 import Preloader from "../../common/Preloader/Preloader";
+import profileReducer from "./../../../redux/profile-reducer"
 
 const ProfileInfo = (props) => {
+if (!props.profile) {
+  return <Preloader />
+}
+
   return (
     <div>
       <div>
         <img src="https://th.bing.com/th/id/R.593e9d7a356ba8b86562474b1fabf7db?rik=eXlRoRpFx7I39Q&pid=ImgRaw&r=0" width={900} height={300}/>
       </div>
       <div className={col.descriptionBlock}>
-     <div className={col.userAvatar}>
-      <img src="https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0" width={100} height={100}/>
-     </div>
-        Mekachefuka
+    <img src={props.profile.photos.large} width={100} height={100}/>
+    Mekachefuka
+   <ul>
+    <li>
+   {props.profile.fullName}
+    </li>
+    <li>
+    About Me: {props.profile.aboutMe}
+    </li>
+    <ol>
+    Contacts:
+    <li>{props.profile.contacts.facebook}</li>
+    <li>{props.profile.contacts.website}</li>
+    <li>{props.profile.contacts.instagram}</li>
+    <li>{props.profile.contacts.github}</li>
+    <li>{props.profile.contacts.mainLink}</li>
+    </ol>
+    <li>
+    lookingForAJob:{props.profile.lookingForAJob}
+    </li>
+    <li>
+    lookingForAJobDescription : {props.profile.lookingForAJobDescription}
+    </li>
+    </ul> 
       </div>
     </div>
   );
