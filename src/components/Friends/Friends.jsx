@@ -6,7 +6,7 @@ const Friends = (props) => {
   let path = "/friend/" + props.id;
   return (
     <div>
-      <NavLink to={path}>{props.friendPage.name}</NavLink>
+      <NavLink to={path}>{props.friendPage}</NavLink>
       <FriendsInfo friendPage={props.friendPage} />
     </div>
   );
