@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
         />
       </div>
       <div className={col.descriptionBlock}>
-        <img src={props.profile.photos.large} width={100} height={100} />
+        <img src={props.profile.photos.large} width={300} height={300} />
         Mekachefuka
         <ul>
           <li>{props.profile.fullName}</li>
