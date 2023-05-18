@@ -25,6 +25,6 @@ let mapStateToProps = (state) => ({
 });
 let WithUrlDataContainerComponent = (props) => {
   const params = useParams();
-  return (<ProfileContainer {...props} userId={params.userId ? params.userId : '2'} />)
+  return (<ProfileContainer {...props} userId={params.userId ? params.userId : '28914'} />)
 };
 export default connect(mapStateToProps, { setUserProfile })(WithUrlDataContainerComponent);
