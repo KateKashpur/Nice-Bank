@@ -3,6 +3,7 @@ import userPhoto from "../../assets/images/User.png";
 import styles from "./users.module.css";
 import { NavLink } from "react-router-dom";
 import { usersAPI } from "../../api/api";
+import {toggleFollowingProgress} from "../../redux/users-reducers."
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -38,36 +39,13 @@ let Users = (props) => {
               </NavLink>
             </div>
             <div>
-              {u.followed ? (
-                <button disabled={props.followingInProgress}
-                  onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-                    usersAPI.getUnfollow().then((data) => {
-                      if (data.resultCode === 0) {
-                        props.unfollow(u.id);
-                      }
-                      props.toggleFollowingProgress(false, u.id);
-                    });
-                  }}
-                >
-                  Unfollow
-                </button>
-              ) : (
-                <button disabled={props.followingInProgress}
-                  onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-
-                    usersAPI.getFollow().then((data) => {
-                      if (data.resultCode === 0) {
-                        props.follow(u.id);
-                      }
-                      props.toggleFollowingProgress(false, u.id);
-                    });
-                  }}
-                >
-                  Follow
-                </button>
-              )}
+              {u.followed ? 
+                <button disabled={props.followingInProgress.some(id => id === u.id)}
+                  onClick={() => {props.unfollow(u.id)}}>Unfollow</button>
+               : 
+                <button disabled={props.followingInProgress.some(id => id === u.id)}
+                  onClick={() => {props.follow(u.id)}}>Follow</button>
+              }
             </div>
           </span>
           <span>
