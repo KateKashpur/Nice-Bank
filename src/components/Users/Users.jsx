@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { usersAPI } from "../../api/api";
 import {toggleFollowingProgress} from "../../redux/users-reducers."
 
+
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
@@ -39,13 +40,23 @@ let Users = (props) => {
               </NavLink>
             </div>
             <div>
-              {u.followed ? 
+              {u.followed ? (
                 <button disabled={props.followingInProgress.some(id => id === u.id)}
-                  onClick={() => {props.unfollow(u.id)}}>Unfollow</button>
-               : 
+                  onClick={() => {
+                    props.unfollow(u.id)
+                  }}
+                >
+                  Unfollow
+                </button>
+              ) : (
                 <button disabled={props.followingInProgress.some(id => id === u.id)}
-                  onClick={() => {props.follow(u.id)}}>Follow</button>
-              }
+                  onClick={() => {
+                    props.follow(u.id)
+                  }}
+                >
+                  Follow
+                </button>
+              )}
             </div>
           </span>
           <span>
