@@ -3,20 +3,20 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import usersReducer from "./users-reducers.";
 import friendsReducer from "./friends-reducer";
-import authReducer from "./auth-reducer"
-import thunkMiddleware from "redux-thunk"
+import authReducer from "./auth-reducer";
+import thunkMiddleware from "redux-thunk";
 
 let redusers = combineReducers({
   profilePage: profileReducer,
   dialogsPage: dialogsReducer,
   usersPage: usersReducer,
   friendPage: friendsReducer,
-  auth: authReducer
+  auth: authReducer,
 });
 
 let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
 
-window.store28914 = store;
-// store28914.getState()
+window.store = store;
+// store.getState()
 
 export default store;
