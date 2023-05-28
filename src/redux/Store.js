@@ -17,7 +17,7 @@ let store = {
         lookingForAJob: true,
         lookingForAJobDescription: "wery true",
         fullName: "Kate Kashpur",
-        userId: 2,
+        userId: 28914,
         photos: {
           small:
             "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",

@@ -15,7 +15,7 @@ let initialState = {
   newPostText: "YO",
   profile: null,
   profile: {
-    aboutMe: "Goog girl",
+    aboutMe: "Good girl",
     contacts: {
       facebook: "facebook.com",
       website: null,
