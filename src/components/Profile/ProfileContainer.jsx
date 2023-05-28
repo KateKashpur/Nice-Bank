@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import axios, * as others from "axios";
-import getUserProfile from "../../redux/profile-reducer";
+import {getUserProfile} from "../../redux/profile-reducer";
 import { useParams } from "react-router-dom";
  
 export class ProfileContainer extends React.Component {
