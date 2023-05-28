@@ -1,10 +1,7 @@
 import React from "react";
-import userPhoto from "../../assets/images/User.png";
 import styles from "./users.module.css";
+import userPhoto from "../../assets/images/User.png";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
-import {toggleFollowingProgress} from "../../redux/users-reducers."
-
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -16,11 +13,12 @@ let Users = (props) => {
   return (
     <div>
       <div>
-        {pages.map((p) => {
+        {pages.map(p => {
           return (
             <span
-              className={props.currentPage === p && styles.selectedPage}
-              onClick={(e) => {
+              className={props.currentPage === p ? styles.selectedPage : ''}
+              key={p}
+              onClick={() => {
                 props.onPageChanged(p);
               }}
             >
@@ -29,11 +27,11 @@ let Users = (props) => {
           );
         })}
       </div>
-      {props.users.map((u) => (
+      {props.users.map(u => (
         <div key={u.id}>
           <span>
             <div>
-              <NavLink to={"./../profile/" + u.id}>
+              <NavLink to={"/profile/" + u.id}>
                 <img
                   src={u.photos.small != null ? u.photos.small : userPhoto}
                   className={styles.userPhoto}

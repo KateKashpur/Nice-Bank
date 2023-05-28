@@ -16,6 +16,7 @@ let redusers = combineReducers({
 
 let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
 
-window.store = store;
+window.store28914 = store;
+// store28914.getState()
 
 export default store;

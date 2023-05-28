@@ -1,18 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { follow, unfollow } from "../../redux/users-reducers.";
-import {
-  setCurrentPage,
+import {follow, unfollow , getUsers , setCurrentPage ,
   toggleFollowingProgress,
-  getUsers,
-} from "../../redux/users-reducers.";
+   } from "../../redux/users-reducers.";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import { usersAPI } from "../../api/api";
 
-class UsersContainer extends React.Component {
+
+class UsersContainer extends React.Component {  totalCount;
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
   }
   onPageChanged = (pageNumber) => {
     this.props.getUsers(pageNumber, this.props.pageSize);
