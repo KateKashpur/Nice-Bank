@@ -3,6 +3,8 @@
    font-family: 'Permanent Marker', cursive;
 
 }
-.userAvatar {
+.avatar {
     margin: 0 auto;
+width: 200px;
+height: 200px;
 }

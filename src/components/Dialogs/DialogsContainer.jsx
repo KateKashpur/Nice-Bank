@@ -28,4 +28,4 @@ let mapDispatchToProps = (dispatch) => {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps)
   // TO LOGIN  withAuthRedirect
-)(Dialogs);
+  )(Dialogs);
