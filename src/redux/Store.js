@@ -5,26 +5,7 @@ import friendsReducer from "./friends-reducer";
 let store = {
   _state: {
     profilePage: {
-      profile: {
-        aboutMe: "ololo",
-        contacts: {
-          facebook: "facebook.com",
-          website: null,
-          instagram: "instagram.com",
-          github: "github.com",
-          mainLink: null,
-        },
-        lookingForAJob: true,
-        lookingForAJobDescription: "wery true",
-        fullName: "Kate Kashpur",
-        userId: 28914,
-        photos: {
-          small:
-            "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",
-          large:
-            "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",
-        },
-      },
+      status: "",
       posts: [
         { id: 1, message: "Hi, how are you?", likesCount: 11 },
         { id: 2, message: "I`ts my first post", likesCount: 20 },
