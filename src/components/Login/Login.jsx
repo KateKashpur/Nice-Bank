@@ -1,98 +1,48 @@
 import React from "react";
-import { Formik, Form, ErrorMessage  } from "formik";
+import { Formik, Form, Field, ErrorMessage  } from "formik";
 import col from "./../../App.css"
-const LoginForm = (props) => {
+import LoginForm from "../../Form";
+
+/*const LoginForm = (props) => {
   return (
 <Formik
-       initialValues={{ login: '', password: '' }}
-       validate={values => {
-         const errors = {};
-         if (!values.login) {
-           errors.login = 'Required';
-         } else if (
-           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.login)
-         ) {
-           errors.login = 'Invalid login';
-         }
-         return errors
-       }}
-       onSubmit={(values) => {
-        console.log(values);
-      }}
+ initialValues={{ login: '', password: '' }}
+ validate={values => {
+   const errors = {};
+   if (!values.login) {
+     errors.login = 'Required';
+   } else if (
+     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.login)
+   ) {
+     errors.login = 'Invalid login';
+   }
+   return errors;
+ }}
+ onSubmit={(values, { setSubmitting }) => {
+   setTimeout(() => {
+     alert(JSON.stringify(values, null, 2));
+     setSubmitting(false);
+   }, 400);
+ }}
      >
        {({ isSubmitting }) => (
          <Form className={col.form}>
-        <div>
-          <input placeholder={"Login"} className={col.input}/>
-        </div>
-        <div>
-          <input placeholder={"Password"} />
-        </div>
-        <div>
+           <Field type="email" name="email" placeholder={"Login"} className={col.input}/>
+           <ErrorMessage name="email" component="div" />
+           <Field type="password" name="password" placeholder={"Password"}/>
+           <ErrorMessage name="password" component="div" />
+           <div>
           <input type={"checkbox"} />
           remember me
         </div>
-        <div>
-          <button>login</button>
-          <ErrorMessage name="login" component="div" />
-          <ErrorMessage name="password" component="div" />
-          <button type="submit" disabled={isSubmitting}>Submit</button>
-        </div>
+           <button type="submit" disabled={isSubmitting}>
+             Submit
+           </button>
          </Form>
        )}
      </Formik>
-
-       /* <Formik
-      initialValues={{ login: "", password: "" }}
-      validateOnBlur
-      onSubmit={(values) => {
-        console.log(values);
-      }}
-    >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        isValid,
-        handleSubmit,
-        dirty,
-      }) => (
-        <div>
-          <div>
-            <input placeholder={"Login"} />
-          </div>
-          <div>
-            <input placeholder={"Password"} />
-          </div>
-          <div>
-            <input type={"checkbox"} />
-            remember me
-          </div>
-          <div>
-            <button>login</button>
-          </div>
-        </div>
-      )}
-    </Formik>*/
-    /*     <form>
-        <div>
-          <input placeholder={"Login"} />
-        </div>
-        <div>
-          <input placeholder={"Password"} />
-        </div>
-        <div>
-          <input type={"checkbox"} />
-          remember me
-        </div>
-        <div>
-          <button>login</button>
-        </div>
-      </form>*/
   );
-};
+};*/
 const Login = (props) => {
   return (
     <div>
