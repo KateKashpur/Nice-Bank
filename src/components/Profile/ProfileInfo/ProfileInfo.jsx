@@ -12,11 +12,11 @@ const ProfileInfo = (props) => {
 
   return (
     <div>
-      {/*<div className={col.photoBlock}>
+      <div className={col.photoBlock}>
         <img
           src="https://th.bing.com/th/id/R.593e9d7a356ba8b86562474b1fabf7db?rik=eXlRoRpFx7I39Q&pid=ImgRaw&r=0"
           alt = "wallpapper" />
-  </div>*/}
+  </div>
       <div className={col.descriptionBlock}>
         <img className={col.avatar} src={props.profile.photos.small} alt={alt_descriptionBlock} />
         <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>

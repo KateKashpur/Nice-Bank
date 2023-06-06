@@ -15,13 +15,13 @@ let initialState = {
   ],
   newPostText: "YO",
   profile: null,
-  status: "",
+  status: "...OLOLO...",
   profile: {
     photos: {
       small:
         "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",
       large:
-        "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",
+       "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",
     },
   },
 };
