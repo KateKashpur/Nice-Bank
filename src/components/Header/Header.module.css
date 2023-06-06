@@ -8,9 +8,13 @@ background-color: rgb(90, 25, 25);
    
 }
 
-.loginBlock {
+.loginBlockIsAuth {
     float: right;
+    color: aqua;
 }
-.loginBlock a{
-    color: rgb(209, 222, 235);
+.loginBlockNotAuth {
+    float: right;
+    margin-left: 15px;
+    font-weight: bold;
+    color: #782aff;
 }
