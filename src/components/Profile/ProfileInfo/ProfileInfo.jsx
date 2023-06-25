@@ -13,7 +13,7 @@ const ProfileInfo = (props) => {
   return (
     <div>
       <div className={col.photoBlock}>
-        <img
+        <img className={col.wallpapper}
           src="https://th.bing.com/th/id/R.593e9d7a356ba8b86562474b1fabf7db?rik=eXlRoRpFx7I39Q&pid=ImgRaw&r=0"
           alt = "wallpapper" />
   </div>

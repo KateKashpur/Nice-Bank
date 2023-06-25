@@ -53,7 +53,7 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(
-  // TO LOGIN  withAuthRedirect,
+  withAuthRedirect,
   connect(mapStateToProps, {
     follow,
     unfollow,
