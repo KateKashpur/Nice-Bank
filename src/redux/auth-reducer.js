@@ -46,7 +46,7 @@ export const login =
         let textError = `resultCode: ${resultCode} - ${response.data.messages.join()}`;
 
         setStatus(textError);
-        //setFieldValue("general", textError)
+        setFieldValue("general", textError)
         setSubmitting(false);
       }
     });

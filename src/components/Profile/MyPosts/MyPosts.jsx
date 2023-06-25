@@ -38,7 +38,7 @@ const AddNewPostForm = (props) => {
 
      newPostText: Yup.string()
         .min( 2, "Must be longer than 2 characters !" )
-        .max( 5, "Must be shorter than 5 characters !" )
+        .max( 100, "Must be shorter than 100 characters !" )
         .required( "Required !" )
   } );
 
@@ -63,7 +63,7 @@ const AddNewPostForm = (props) => {
                  <Field
                     name={'newPostText'}
                     as={'textarea'}
-                    placeholder={'enter text 1'}
+                    placeholder={'enter text '}
                  />
               </div>
 

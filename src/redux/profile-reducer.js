@@ -9,8 +9,8 @@ let initialState = {
     { id: 1, message: "Hi, how are you?", likesCount: 11 },
     { id: 2, message: "I`ts my first post", likesCount: 20 },
     { id: 3, message: "YO", likesCount: 80 },
-    { id: 4, message: "YO", likesCount: 80 },
-    { id: 5, message: "YO", likesCount: 80 },
+   // { id: 4, message: "YO", likesCount: 80 },
+   // { id: 5, message: "YO", likesCount: 80 },
   ],
   newPostText: "YO",
   profile: null,     
@@ -35,7 +35,7 @@ const profileReducer = (state = initialState, action) => {
      let newPosts = {
      id: nextIdMessages + action.newPostText,
      message: action.newPostText,
-     likesCount: 777
+     likesCount: 100
     }
     return {
       ...state,
