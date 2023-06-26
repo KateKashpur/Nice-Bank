@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
@@ -11,43 +11,46 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
+import { getAuthUserData } from "./redux/auth-reducer";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-const App = () => {
-  return (
-    <div className="app-wrapper">
-      <HeaderContainer />
-      <Navbar />
-      <div className="app-wrapper-content">
-        <Routes>
-          <Route
-            path={"/profile/:userId"}
-            element={<ProfileContainer />}
-          />
-           <Route
-            path="/profile/"
-            element={<ProfileContainer />}
-          />
-          <Route
-            exact
-            path="/dialogs/"
-            element={<DialogsContainer />}
-          />
-             <Route
-            exact
-            path="/users"
-            element={<UsersContainer />}
-          />
-          <Route exact path="/news" element={<News />} />
-          <Route exact path="/music" element={<Music />} />
-          <Route exact path="/settings" element={<Settings />} />
-          <Route exact path="/friends" element={<Friends />} />
-          <Route
-            path="/login/"
-            element={<Login />}
-          />
-        </Routes>
+
+class App extends Component {
+  componentDidMount() {
+    this.props.getAuthUserData();
+  }
+  render() {
+    return (
+      <div className="app-wrapper">
+        <HeaderContainer />
+        <Navbar />
+        <div className="app-wrapper-content">
+          <Routes>
+            <Route path={"/profile/:userId"} element={<ProfileContainer />} />
+            <Route path="/profile/" element={<ProfileContainer />} />
+            <Route exact path="/dialogs/" element={<DialogsContainer />} />
+            <Route exact path="/users" element={<UsersContainer />} />
+            <Route exact path="/news" element={<News />} />
+            <Route exact path="/music" element={<Music />} />
+            <Route exact path="/settings" element={<Settings />} />
+            <Route exact path="/friends" element={<Friends />} />
+            <Route path="/login/" element={<Login />} />
+          </Routes>
+        </div>
       </div>
-    </div>
-  );
-};
-export default App;
+    );
+  }
+}
+function withRouter(Component) {
+  function ComponentWithRouterProp(props) {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+    return <Component {...props} router={{ location, navigate, params }} />;
+  }
+
+  return ComponentWithRouterProp;
+}
+export default compose(withRouter, connect(null, { getAuthUserData }))(App);
