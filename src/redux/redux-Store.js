@@ -5,6 +5,7 @@ import usersReducer from "./users-reducers.";
 import friendsReducer from "./friends-reducer";
 import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
+import appReducer from "./app-reducer";
 
 let redusers = combineReducers({
   profilePage: profileReducer,
@@ -12,6 +13,7 @@ let redusers = combineReducers({
   usersPage: usersReducer,
   friendPage: friendsReducer,
   auth: authReducer,
+  app: appReducer,
 });
 
 let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));

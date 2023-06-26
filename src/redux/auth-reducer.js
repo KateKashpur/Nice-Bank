@@ -15,7 +15,6 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
-
       };
 
     default:
@@ -28,12 +27,13 @@ const setAuthUserData = (userId, email, login, isAuth) => ({
   payload: { userId, email, login, isAuth },
 });
 export const getAuthUserData = () => (dispatch) => {
-  authAPI.me().then((response) => {
+   return( authAPI.me().then((response) => {
     if (response.data.resultCode === 0) {
       let { userId, email, login } = response.data.data;
       dispatch(setAuthUserData(userId, email, login, true));
     }
-  });
+  }))
+
 };
 export const login =
   (email, password, rememberMe, setStatus, setFieldValue, setSubmitting) =>
@@ -47,7 +47,7 @@ export const login =
         let textError = `resultCode: ${resultCode} - ${response.data.messages.join()}`;
 
         setStatus(textError);
-        setFieldValue("general", textError)
+        setFieldValue("general", textError);
         setSubmitting(false);
       }
     });
