@@ -6,8 +6,8 @@ const Post = (props) => {
   return (
     <div className={col.item}>
       <img src="https://th.bing.com/th/id/OIP.sGaO2yMD4e8GUvoUX2pVigHaLH?pid=ImgDet&rs=1" alt="user avatar" />
-     {props.message}
       <div>
+     {props.message}
 
      {props.likesCount}
       <span>like</span>
