@@ -43,7 +43,7 @@ const AddNewPostForm = (props) => {
 class MyPosts extends React.Component {
    render () {
 
-      let postsElements = this.props.posts.map((p) => (
+      let postsElements =[...this.props.posts].reverse().map((p) => (
         <Post message={p.message} likesCount={p.likesCount} />
       ));
     
