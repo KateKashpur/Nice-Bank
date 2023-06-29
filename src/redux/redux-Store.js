@@ -1,4 +1,4 @@
-import { combineReducers, legacy_createStore, applyMiddleware } from "redux";
+import { combineReducers, legacy_createStore, applyMiddleware, compose } from "redux";
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import usersReducer from "./users-reducers.";
@@ -6,8 +6,6 @@ import friendsReducer from "./friends-reducer";
 import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
 import appReducer from "./app-reducer";
-import { compose } from 'redux';
-
 
 let redusers = combineReducers({
   profilePage: profileReducer,
@@ -23,7 +21,6 @@ let redusers = combineReducers({
  const store = legacy_createStore(redusers, composeEnhancers(
     applyMiddleware(thunkMiddleware)
   ));
-//let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
 
 window.___store___ = store;
 // store.getState()

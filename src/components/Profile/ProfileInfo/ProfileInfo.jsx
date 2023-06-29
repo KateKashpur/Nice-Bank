@@ -1,4 +1,4 @@
-import React,{useState}from "react";
+import React from "react";
 import col from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
