@@ -16,6 +16,8 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Preloader from "./components/common/Preloader/Preloader";
+import store from "./redux/redux-Store";
+
 
 class App extends Component {
   componentDidMount() {
@@ -26,6 +28,7 @@ class App extends Component {
    {return <Preloader />}
 
     return (
+     
       <div className="app-wrapper">
         <HeaderContainer />
         <Navbar />
@@ -43,6 +46,7 @@ class App extends Component {
           </Routes>
         </div>
       </div>
+   
     );
   }
 }
