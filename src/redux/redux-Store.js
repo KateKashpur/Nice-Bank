@@ -6,6 +6,8 @@ import friendsReducer from "./friends-reducer";
 import authReducer from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
 import appReducer from "./app-reducer";
+import { compose } from 'redux';
+
 
 let redusers = combineReducers({
   profilePage: profileReducer,
@@ -16,9 +18,14 @@ let redusers = combineReducers({
   app: appReducer,
 });
 
-let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
 
-window.store = store;
+ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+ const store = legacy_createStore(redusers, composeEnhancers(
+    applyMiddleware(thunkMiddleware)
+  ));
+//let store = legacy_createStore(redusers, applyMiddleware(thunkMiddleware));
+
+window.___store___ = store;
 // store.getState()
 
 export default store;

@@ -5,11 +5,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import store from "./redux/redux-Store";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-//setInterval(() => {store.dispatch({type:"FAKE"})},1000);
-w
+
   root.render(
      
     <BrowserRouter>

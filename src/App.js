@@ -16,7 +16,6 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Preloader from "./components/common/Preloader/Preloader";
-import store from "./redux/redux-Store";
 
 
 class App extends Component {
