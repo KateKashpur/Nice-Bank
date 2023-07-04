@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({status, updateStatus}) => {
 
     useEffect(() => {
-        setStatus(props.status)
-    }, [props.status]);
+        setStatus(status)
+    }, [status]);
 
     const [editMode, setEditMode] = useState(false);
-    const [status, setStatus] = useState(props.status);
+    const [status, setStatus] = useState(status);
 
     const deactivateEditMode = () => {
         setEditMode(false);
-        props.updateStatus(status);
+        updateStatus(status);
     }
 
     const onStatusChange = (e) => {
@@ -22,7 +22,7 @@ const ProfileStatus = (props) => {
             <div>
                 { editMode === false
                     ?   <div>
-                            <span style={{fontStyle: "italic" }} onDoubleClick={() =>{setEditMode(true)} } > {props.status || "no status yet"}</span>
+                            <span style={{fontStyle: "italic" }} onDoubleClick={() =>{setEditMode(true)} } > {status || "no status yet"}</span>
                         </div>
 
                     :   <div>
