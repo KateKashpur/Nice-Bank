@@ -20,17 +20,16 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/redux-Store";
 
-
 class App extends Component {
   componentDidMount() {
     this.props.initializeApp();
   }
   render() {
-    if (!this.props.initialized)
-   {return <Preloader />}
+    if (!this.props.initialized) {
+      return <Preloader />;
+    }
 
     return (
-     
       <div className="app-wrapper">
         <HeaderContainer />
         <Navbar />
@@ -48,7 +47,6 @@ class App extends Component {
           </Routes>
         </div>
       </div>
-   
     );
   }
 }
@@ -63,24 +61,22 @@ function withRouter(Component) {
   return ComponentWithRouterProp;
 }
 let mapStateToProps = (state) => ({
-initialized: state.app.initialized
+  initialized: state.app.initialized,
 });
 
-let AppContainer =  compose(withRouter, connect(mapStateToProps, { initializeApp }))(App);
-
+let AppContainer = compose(
+  withRouter,
+  connect(mapStateToProps, { initializeApp })
+)(App);
 
 const SamuraiApp = (props) => {
   return (
-  <BrowserRouter>
-     
-  <Provider store ={store}>
-    
-      <AppContainer />
-           
-    </Provider>
-
-</BrowserRouter>
-  )
-}
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  );
+};
 
 export default SamuraiApp;

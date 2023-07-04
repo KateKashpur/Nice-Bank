@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import col from "./../../App.css";
 import {
@@ -9,15 +9,16 @@ import {
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
+import { createError, createField } from "../common/FormsControls/FormsControls.js";
 
-const LoginPage = (props) => {
+const LoginPage = ({ isAuth, login }) => {
   const validationSchema = Yup.object().shape({
     password: Yup.string()
       .min(2, "Must be longer than 2 characters")
       .max(100, "Must be shorter than 100 characters")
       .required("Required 2"),
   });
-  if (props.isAuth) {
+  if (isAuth) {
     return <Navigate to={"/profile"} />;
   }
   return (
@@ -34,7 +35,7 @@ const LoginPage = (props) => {
         validationSchema={validationSchema}
         onSubmit={(values, bagWithMethods) => {
           let { setStatus, setFieldValue, setSubmitting } = bagWithMethods;
-          props.login(
+          login(
             values.email,
             values.password,
             values.rememberMe,
@@ -63,42 +64,18 @@ const LoginPage = (props) => {
                     ..{status} - with setStatus
                   </div>
                 )}
-
-                <div>
-                  <Field name={"email"} type={"text"} placeholder={"e-mail"} />
-                </div>
-                <ErrorMessage name="email">{ErrorMessageWrapper}</ErrorMessage>
-
-                <div>
-                  <Field
-                    name={"password"}
-                    type={"password"}
-                    placeholder={"password"}
-                  />
-                </div>
-                <ErrorMessage name="password">
-                  {ErrorMessageWrapper}
-                </ErrorMessage>
-
-                <div>
-                  <Field
-                    type={"checkbox"}
-                    name={"rememberMe"}
-                    id="rememberMe"
-                  />
-                  <label htmlFor={"rememberMe"}> remember me </label>
-                </div>
-
+                {createField("email", "text", "e-mail", null)}
+                {createField("password", "password", "password", null)}
+                {createField("rememberMe", "checkbox", null, "rememberMe")}
+                <label htmlFor={"rememberMe"}> remember me </label>
                 <button type={"submit"} disabled={isSubmitting}>
-                  {isSubmitting ? "Please wait..." : "Submit"}
+                  {isSubmitting ? "Please wait..." : "LOGIN"}
                 </button>
               </div>
             </Form>
           );
         }}
       </Formik>
-
-      <div>...</div>
     </div>
   );
 };
