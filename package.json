@@ -2,7 +2,7 @@
   "name": "way-samurai-1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://katekashpur.github.io/Way_Samurai",
+  "homepage": "katekashpur.github.io.sotial-network",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
