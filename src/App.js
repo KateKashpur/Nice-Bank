@@ -34,18 +34,24 @@ class App extends Component {
         <HeaderContainer />
         <Navbar />
         <div className="app-wrapper-content">
-          <Suspense fallback={ <div><Preloader/></div> }>
-          <Routes>
-            <Route path={"/profile/:userId"} element={<ProfileContainer />} />
-            <Route path="/profile/" element={<ProfileContainer />} />
-            <Route exact path="/dialogs/" element={<DialogsContainer />} />
-            <Route exact path="/users" element={<UsersContainer />} />
-            <Route exact path="/news" element={<News />} />
-            <Route exact path="/music" element={<Music />} />
-            <Route exact path="/settings" element={<Settings />} />
-            <Route exact path="/friends" element={<Friends />} />
-            <Route path="/login/" element={<Login />} />
-          </Routes> 
+          <Suspense
+            fallback={
+              <div>
+                <Preloader />
+              </div>
+            }
+          >
+            <Routes>
+              <Route path={"/profile/:userId"} element={<ProfileContainer />} />
+              <Route path="/profile/" element={<ProfileContainer />} />
+              <Route exact path="/dialogs/" element={<DialogsContainer />} />
+              <Route exact path="/users" element={<UsersContainer />} />
+              <Route exact path="/news" element={<News />} />
+              <Route exact path="/music" element={<Music />} />
+              <Route exact path="/settings" element={<Settings />} />
+              <Route exact path="/friends" element={<Friends />} />
+              <Route path="/login/" element={<Login />} />
+            </Routes>
           </Suspense>
         </div>
       </div>
