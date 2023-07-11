@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
@@ -34,6 +34,7 @@ class App extends Component {
         <HeaderContainer />
         <Navbar />
         <div className="app-wrapper-content">
+          <Suspense fallback={ <div><Preloader/></div> }>
           <Routes>
             <Route path={"/profile/:userId"} element={<ProfileContainer />} />
             <Route path="/profile/" element={<ProfileContainer />} />
@@ -44,7 +45,8 @@ class App extends Component {
             <Route exact path="/settings" element={<Settings />} />
             <Route exact path="/friends" element={<Friends />} />
             <Route path="/login/" element={<Login />} />
-          </Routes>
+          </Routes> 
+          </Suspense>
         </div>
       </div>
     );
