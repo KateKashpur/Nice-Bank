@@ -5,8 +5,7 @@
 }
 .avatar {
     margin: 0 auto;
-width: 200px;
-height: 200px;
+max-width: 200px;
 }
 .wallpapper {
      margin: 0 auto;
