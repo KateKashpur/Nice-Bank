@@ -1,15 +1,14 @@
 import React from "react";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import col from "./../../App.css";
 import {
-  ErrorMessageWrapper,
   validateEmailField,
 } from "./../../Utils/Validators/Validators";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
-import { createError, createField } from "../common/FormsControls/FormsControls.js";
+import { createField } from "../common/FormsControls/FormsControls.js";
 
 const LoginPage = ({ isAuth, login }) => {
   const validationSchema = Yup.object().shape({
