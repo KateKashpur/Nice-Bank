@@ -24,6 +24,17 @@ let initialState = {
       large:
         "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",
     },
+    fullName: "Kate Kashpur",
+    lookingForAJob: true,
+    lookingForAJobDescription: "JS, React, Redux",
+    aboutMe: "The samurai has no goal - only the path",
+    contacts: {
+      github: "github.com",
+      facebook: "facebook.com",
+      insta: "insta.com",
+      telegram: "telegram.com",
+      viber: "viber.com",
+    },
   },
 };
 
