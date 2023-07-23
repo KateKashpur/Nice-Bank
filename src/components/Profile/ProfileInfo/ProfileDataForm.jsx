@@ -6,20 +6,20 @@ const ProfileDataForm = ({ profile, onSubmit}) => {
   return (
     <Formik
       initialValues={{
-        fullName: "",
+        fullName: "Kate",
       }}
       onSubmit={onSubmit}
     >
       <Form >
         <div>
-          <button>save</button>
+          <button type="onSubmit">save</button>
         </div>
         <div>
           <b>Full Name:</b>: {createField("Full name", "fullName", [])}
         </div>
         <div>
           <b>Looking for a job:</b>
-          {createField("lookingForAJob", "checkbox", [], "")}
+          {createField("lookingForAJob", "checkbox", [])}
         </div>
         {profile.lookingForAJob && (
           <div>
@@ -28,7 +28,7 @@ const ProfileDataForm = ({ profile, onSubmit}) => {
           </div>
         )}
         <div>
-          <b>About me:</b> {createField("About me", "aboutMe", [])}
+          <b>About me:</b> {createField("About me","textarea", "", "aboutMe" )}
         </div>
         <div>
           <b>Contacts:</b>{" "}

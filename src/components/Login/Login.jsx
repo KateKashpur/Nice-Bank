@@ -63,9 +63,9 @@ const LoginPage = ({ isAuth, login }) => {
                     ..{status} - with setStatus
                   </div>
                 )}
-                {createField("email", "text", "e-mail", null)}
-                {createField("password", "password", "password", null)}
-                {createField("rememberMe", "checkbox", null, "rememberMe")}
+                {createField("email", "text", "e-mail", )}
+                {createField("password", "password", "password", )}
+                {createField("rememberMe", "checkbox",  "rememberMe")}
                 <label htmlFor={"rememberMe"}> remember me </label>
                 <button type={"submit"} disabled={isSubmitting}>
                   {isSubmitting ? "Please wait..." : "LOGIN"}

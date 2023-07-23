@@ -114,6 +114,14 @@ export const updateStatus = (status) => async (dispatch) => {
   }
 };
 
+
+export const saveProfile = (profile) => async (dispatch) => {
+  let response = await profileAPI.saveProfile(profile);
+  if (response.data.resultCode === 0) {
+    //dispatch(saveProfile(response.data.profile));
+  }
+};
+
 export const savePhoto = (file) => async (dispatch) => {
   let response = await profileAPI.savePhoto(file);
   if (response.data.resultCode === 0) {
