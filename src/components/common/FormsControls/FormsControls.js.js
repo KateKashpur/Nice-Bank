@@ -1,8 +1,10 @@
 import React from "react";
 import { Field } from "formik";
 
-export const createField = (name, type, placeholder, props) => (
+export const createField = (placeholder, name, validators, component, props = {}, type) => (
+  //export const createField = (name, type, props, placeholder) => (
+
   <div>
-    <Field name={name} type={type} placeholder={placeholder} props={props}/>
+    <Field placeholder={placeholder} name={name} validators={validators} component={component} props={props} type={type}/>
   </div>
 );

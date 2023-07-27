@@ -15,13 +15,13 @@ let initialState = {
     // { id: 5, message: "YO", likesCount: 80 },
   ],
   newPostText: "YO",
-  profile: null,
-  status: "...OLOLO...",
+ // profile: null,
+  status: null,
   profile: {
-    photos: {
-      small:
+    "photos" : {
+      "small" :
         "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",
-      large:
+      "large" :
         "https://th.bing.com/th/id/R.619f2e7a7524e84c811dc01214dcd145?rik=MFLvremgN1j5MA&pid=ImgRaw&r=0",
     },
     fullName: "Kate Kashpur",
@@ -115,10 +115,11 @@ export const updateStatus = (status) => async (dispatch) => {
 };
 
 
-export const saveProfile = (profile) => async (dispatch) => {
-  let response = await profileAPI.saveProfile(profile);
+export const saveProfile = (profile) => async (dispatch, getState) => {
+  const userId = getState().auth.userId
+  const response = await profileAPI.saveProfile(profile);
   if (response.data.resultCode === 0) {
-    //dispatch(saveProfile(response.data.profile));
+    dispatch(getUserProfile(userId));
   }
 };
 

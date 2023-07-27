@@ -2,9 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import col from "./../../App.css";
-import {
-  validateEmailField,
-} from "./../../Utils/Validators/Validators";
+import { validateEmailField } from "./../../Utils/Validators/Validators";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
@@ -63,9 +61,23 @@ const LoginPage = ({ isAuth, login }) => {
                     ..{status} - with setStatus
                   </div>
                 )}
-                {createField("email", "text", "e-mail", )}
-                {createField("password", "password", "password", )}
-                {createField("rememberMe", "checkbox",  "rememberMe")}
+                {createField("e-mail", "email", "", "", "", "text")}
+                {createField(
+                  "password",
+                  "password",
+                  "password",
+                  "",
+                  "",
+                  "password"
+                )}
+                {createField(
+                  "rememberMe",
+                  "",
+                  "",
+                  "",
+                  "rememberMe",
+                  "checkbox"
+                )}
                 <label htmlFor={"rememberMe"}> remember me </label>
                 <button type={"submit"} disabled={isSubmitting}>
                   {isSubmitting ? "Please wait..." : "LOGIN"}
