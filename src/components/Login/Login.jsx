@@ -40,7 +40,7 @@ const LoginPage = ({ isAuth, login }) => {
             setFieldValue,
             setSubmitting
           );
-        }}
+        }} //captchaUrl = {props.captchaUrl}
       >
         {(props) => {
           let { status, values, isSubmitting } = props;
@@ -90,7 +90,9 @@ const LoginPage = ({ isAuth, login }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => ({ isAuth: state.auth.isAuth });
+const mapStateToProps = (state) => ({
+ // captchaUrl: state.auth.captchaUrl,
+  isAuth: state.auth.isAuth });
 const LoginPageConnect = connect(mapStateToProps, { login })(LoginPage);
 
 export default LoginPageConnect;
