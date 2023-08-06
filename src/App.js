@@ -42,6 +42,7 @@ class App extends Component {
             }
           >
             <Routes>
+              <Route path={"/"} element={<ProfileContainer />} />
               <Route path={"/profile/:userId"} element={<ProfileContainer />} />
               <Route path="/profile/" element={<ProfileContainer />} />
               <Route exact path="/dialogs/" element={<DialogsContainer />} />
@@ -51,6 +52,7 @@ class App extends Component {
               <Route exact path="/settings" element={<Settings />} />
               <Route exact path="/friends" element={<Friends />} />
               <Route path="/login/" element={<Login />} />
+              <Route path="*" element={<div>404 NOT FOUND</div>} />
             </Routes>
           </Suspense>
         </div>
