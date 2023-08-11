@@ -1,5 +1,15 @@
 const SET_FRIEND_PROFILE = "SET_FRIEND_PROFILE";
 
+type PhotoType ={
+  small: string|null
+}
+
+type FriendPageType = {
+  id: number
+  name: string
+  photo: PhotoType
+}
+
 let initialState = {
   friendPage: [
     {
@@ -55,10 +65,13 @@ let initialState = {
           "https://th.bing.com/th/id/R.86a2056fc602703342b1ec619c9d752b?rik=YKzVjRQH9xgPIw&pid=ImgRaw&r=0",
       },
     },
-  ],
+  ] as Array<FriendPageType>,
 };
 
-const friendsReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState;
+
+
+const friendsReducer = (state = initialState, action:any): InitialStateType => {
   switch (action.type) {
     case SET_FRIEND_PROFILE: {
       return { ...state, friendPage: action.friendPage };
@@ -69,7 +82,14 @@ const friendsReducer = (state = initialState, action) => {
   }
 };
 
-export const setFriendProfile = (friendPage) => ({
+export type SetFriendProfileActionType = {
+   type: typeof SET_FRIEND_PROFILE,
+   friendPage: string
+}
+
+
+
+export const setFriendProfile = (friendPage:string): SetFriendProfileActionType => ({
   type: SET_FRIEND_PROFILE,
   friendPage,
 });
