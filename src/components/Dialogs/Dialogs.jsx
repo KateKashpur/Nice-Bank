@@ -11,7 +11,7 @@ import * as Yup from "yup";
 const Dialogs = (props) => {
   let state = props.dialogsPage;
 
-  let dialogsElements = state.sidebar.map((d) => (
+  let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} key={d.id} id={d.id} img={d.img} />
   ));
 

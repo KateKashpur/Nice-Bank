@@ -3,21 +3,15 @@ import { authAPI, securityAPI } from "../api/api";
 const SET_USER_DATA = "S-n/auth/SET_USER_DATA";
 const GET_CAPTCHA_URL_SUCCES = "S-n/auth/GET_CAPTCHA_URL_SUCCES";
 
-export type InitialStateType = {
-  userId: number | null;
-  email: string | null;
-  login: string | null;
-  isAuth: boolean;
-  captchaUrl: string | null;
+let initialState = {
+  userId: null as number | null,
+  email: null as string | null,
+  login: null as string | null,
+  isAuth: false,
+  captchaUrl: null as string | null,
 };
 
-let initialState: InitialStateType = {
-  userId: null,
-  email: null,
-  login: null,
-  isAuth: false,
-  captchaUrl: null,
-};
+export type InitialStateType = typeof initialState;
 
 const authReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
@@ -103,21 +97,23 @@ export const getAuthUserData = () => async (dispatch: any) => {
   };
 */
 export const login =
-  (email: string | null,
+  (
+    email: string | null,
     password: string | null,
     rememberMe: boolean,
-    captcha: string | null) =>
-    async (dispatch:any) => {
-      let response = await authAPI.login(email, password, rememberMe, captcha);
-      if (response.data.resultCode === 0) {
-        dispatch(getAuthUserData());
-      } else {
-        if (response.data.resultCode === 10) {
-          dispatch(getCaptchaUrl())
-        }
-   //     let textError = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
+    captcha: string | null
+  ) =>
+  async (dispatch: any) => {
+    let response = await authAPI.login(email, password, rememberMe, captcha);
+    if (response.data.resultCode === 0) {
+      dispatch(getAuthUserData());
+    } else {
+      if (response.data.resultCode === 10) {
+        dispatch(getCaptchaUrl());
       }
-    };
+      //     let textError = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
+    }
+  };
 
 export const getCaptchaUrl = () => async (dispatch: any) => {
   const response = await securityAPI.getCaptchaUrl();
