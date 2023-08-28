@@ -5,13 +5,13 @@ import { UserType } from "../../Types/Types";
 
 type PropsType = {
   currentPage: number;
-  onPageChanged: () => void;
+  onPageChanged: (pageNumber:number) => void;
   totalUsersCount: number;
   pageSize: number;
   users: Array<UserType>;
   followingInProgress: Array<number>;
-  unfollow: () => void;
-  follow: () => void;
+  unfollow: (userId: number) => void;
+  follow: (userId: number) => void;
 };
 
 let Users: FC<PropsType> = ({
