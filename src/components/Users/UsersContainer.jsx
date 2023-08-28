@@ -6,7 +6,7 @@ import {
   requestUsers,
   setCurrentPage,
   toggleFollowingProgress,
-} from "../../redux/users-reducers.";
+} from "../../redux/users-reducers";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
