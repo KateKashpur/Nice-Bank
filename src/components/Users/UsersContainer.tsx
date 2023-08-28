@@ -19,15 +19,32 @@ import {
   getIsFetching,
   getFollowingInProgress,
 } from "../../redux/users-selectors";
+import { UserType } from "../../Types/Types";
+import { AppStateType } from "../../redux/redux-Store";
 
-class UsersContainer extends React.Component {
-  totalCount;
+type PropsType = {
+  currentPage: number;
+  pageSize: number;
+  isFetching:boolean;
+  totalUsersCount: number;
+  users: Array<UserType>
+    
+  onPageChanged: ()=>void;
+
+  requestUsers:(currentPage:number, pageSize:number)=>void;
+  followingInProgress: Array<number>; 
+  unfollow: ()=>void;
+  follow:()=>void;
+};
+
+class UsersContainer extends React.Component<PropsType> {
+ // totalCount;
   componentDidMount() {
     const { requestUsers, currentPage, pageSize } = this.props;
     requestUsers(currentPage, pageSize);
   }
-  componentDidUpdate(prevProps, prevState, snapshot) {}
-  onPageChanged = (pageNumber) => {
+  componentDidUpdate() {}
+  onPageChanged = (pageNumber:number) => {
     const { requestUsers, pageSize } = this.props;
     requestUsers(pageNumber, pageSize);
   };
@@ -40,7 +57,7 @@ class UsersContainer extends React.Component {
           totalUsersCount={this.props.totalUsersCount}
           pageSize={this.props.pageSize}
           currentPage={this.props.currentPage}
-          onPageChanged={this.onPageChanged}
+          onPageChanged={this.props.onPageChanged}
           users={this.props.users}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
@@ -51,7 +68,7 @@ class UsersContainer extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType) => {
   return {
     users: getUsers(state),
     pageSize: getPageSize(state),
