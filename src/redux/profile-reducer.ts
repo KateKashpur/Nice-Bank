@@ -1,5 +1,6 @@
 import { PhotosType, PostType, ProfileType } from "../Types/Types";
 import { profileAPI, usersAPI } from "../api/api";
+//import { ThunkType } from "./users-reducers";
 
 const ADD_POST = "ADD-POST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -43,7 +44,7 @@ export type InitialStateType = typeof initialState;
 
 const profileReducer = (
   state = initialState,
-  action: any
+  action:any // ActionsTypes
 ): InitialStateType => {
   switch (action.type) {
     case SET_STATUS: {
@@ -82,6 +83,13 @@ const profileReducer = (
   }
 };
 
+/*type ActionsTypes =
+  | AddPostActionCreatorType
+  | SetUserProfileActionType
+  | SetStatusActionType
+  | DeletePostActionType
+  | SavePhotoSuccessActionType;
+*/
 type AddPostActionCreatorType = {
   type: typeof ADD_POST;
   newPostText: string;
@@ -138,15 +146,15 @@ export const savePhotoSuccess = (
   photos,
 });
 
-export const getUserProfile = (userId: number) => async (dispatch: any) => {
+export const getUserProfile = (userId: number)/*: ThunkType*/ => async (dispatch:any) => {
   let response = await usersAPI.getProfile(userId);
   dispatch(setUserProfile(response.data));
 };
-export const getStatus = (userId: number) => async (dispatch: any) => {
+export const getStatus = (userId: number)/*: ThunkType*/ => async (dispatch:any) => {
   let response = await profileAPI.getStatus(userId);
   dispatch(setStatus(response.data));
 };
-export const updateStatus = (status: string) => async (dispatch: any) => {
+export const updateStatus = (status: string)/*: ThunkType*/ => async (dispatch:any) => {
   let response = await profileAPI.updateStatus(status);
   if (response.data.resultCode === 0) {
     dispatch(setStatus(status));
@@ -154,7 +162,7 @@ export const updateStatus = (status: string) => async (dispatch: any) => {
 };
 
 export const saveProfile =
-  (profile: ProfileType) => async (dispatch: any, getState: any) => {
+  (profile: ProfileType)/*: ThunkType*/ => async (dispatch:any, getState:any) => {
     const userId = getState().auth.userId;
     const response = await profileAPI.saveProfile(profile);
     if (response.data.resultCode === 0) {
