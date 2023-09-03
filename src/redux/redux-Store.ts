@@ -27,7 +27,12 @@ export type AppStateType = ReturnType<RootReducerType>;
 //глобальний стейт
 // @ts-ignore
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+type PropertiesTypes<T> = T extends {[key: string]: infer U} ? U : never
+
+export type InferActionsTypes<T extends  {[key: string]: (...args: any[])=>any}> = ReturnType<PropertiesTypes<T>> 
+
+const composeEnhancers = /*window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||*/
+compose;
 
 const store = legacy_createStore(
   rootReducer,
