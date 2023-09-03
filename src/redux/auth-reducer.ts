@@ -74,13 +74,12 @@ export const getAuthUserData = () => async (dispatch: any) => {
 };
 /*export const login =
   (
-    email: string | null,
-    password: string | null,
+      email: string,
+    password: string ,
     rememberMe: boolean,
-    captcha: string,
-    setStatus: any,
-    setFieldValue: any,
-    setSubmitting: any
+    captcha: string 
+    setStatus: string,
+    setSubmitting: boolean
   ) =>
   async (dispatch: any) => {
     let response = await authAPI.login(email, password, rememberMe, captcha);
@@ -91,11 +90,12 @@ export const getAuthUserData = () => async (dispatch: any) => {
       let textError = `resultCode: ${resultCode} - ${response.data.messages.join()}`;
 
       setStatus(textError);
-      setFieldValue("general", textError);
       setSubmitting(false);
     }
   };
 */
+
+
 export const login =
   (
     email: string,

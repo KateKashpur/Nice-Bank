@@ -1,14 +1,17 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import col from "./../../App.css";
-import { validateEmailField } from "./../../Utils/Validators/Validators";
+import { validateEmailField } from "../../Utils/Validators/Validators";
 import { connect } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Navigate } from "react-router-dom";
 import { createField } from "../common/FormsControls/FormsControls.js";
+import { AppStateType } from "../../redux/redux-Store";
 
-const LoginPage = ({ isAuth, login }) => {
+const LoginPage: React.FC<MapStateToPropsType & MapDispatchToPropsType> = ({
+  isAuth,
+  login,
+}) => {
   const validationSchema = Yup.object().shape({
     password: Yup.string()
       .min(2, "Must be longer than 2 characters")
@@ -30,15 +33,12 @@ const LoginPage = ({ isAuth, login }) => {
         }}
         validate={validateEmailField}
         validationSchema={validationSchema}
-        onSubmit={(values, bagWithMethods) => {
-          let { setStatus, setFieldValue, setSubmitting } = bagWithMethods;
+        onSubmit={(values) => {
           login(
             values.email,
             values.password,
             values.rememberMe,
-            setStatus,
-            setFieldValue,
-            setSubmitting
+            values.general
           );
         }} //captchaUrl = {props.captchaUrl}
       >
@@ -56,24 +56,13 @@ const LoginPage = ({ isAuth, login }) => {
                   <div>_.{values.general} - with setFieldValue</div>
                 )}
 
-                {status && (
-                  <div className={col.validationErrorMessage}>
-                    ..{status} - with setStatus
-                  </div>
-                )}
-                {createField("e-mail", "email", "", "", "", "text")}
-                {createField(
-                  "password",
-                  "password",
-                  "password",
-                  "",
-                  "",
-                  "password"
-                )}
+                {status && <div>..{status} - with setStatus</div>}
+                {createField("e-mail", "email", [], "", "", "text")}
+                {createField("password", "password", [], "", "", "password")}
                 {createField(
                   "rememberMe",
                   "",
-                  "",
+                  [],
                   "",
                   "rememberMe",
                   "checkbox"
@@ -90,9 +79,25 @@ const LoginPage = ({ isAuth, login }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => ({
- // captchaUrl: state.auth.captchaUrl,
-  isAuth: state.auth.isAuth });
+
+type MapDispatchToPropsType = {
+  login: (
+    email: string,
+    password: string,
+    rememberMe: boolean,
+    captcha: string
+  ) => void;
+};
+
+type MapStateToPropsType = {
+  captchaUrl: string | null;
+  isAuth: boolean;
+};
+
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
+  captchaUrl: state.auth.captchaUrl,
+  isAuth: state.auth.isAuth,
+});
 const LoginPageConnect = connect(mapStateToProps, { login })(LoginPage);
 
 export default LoginPageConnect;
